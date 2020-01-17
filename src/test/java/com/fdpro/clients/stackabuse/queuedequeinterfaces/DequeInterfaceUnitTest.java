@@ -1,4 +1,4 @@
-package com.fdpro.clients.stackabuse.mapinterface;
+package com.fdpro.clients.stackabuse.queuedequeinterfaces;
 
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
