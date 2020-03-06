@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+    <persistence-unit name="guide-to-jpa-with-hibernate">
+        <class>com.fdpro.clients.stackabuse.jpa.domain.Student</class>
+
+        <class>com.fdpro.clients.stackabuse.jpa.domain.converters.YesNoBooleanConverter</class>
+
+        <properties>
+            <!-- Database configuration -->
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:"/>
+            <property name="javax.persistence.jdbc.user" value="user"/>
+            <property name="javax.persistence.jdbc.password" value="password"/>
+
+            <!-- Schema configuration -->
+            <property name="javax.persistence.schema-generation.database.action" value="create"/>
+
+            <!-- Data loading -->
+            <property name="javax.persistence.sql-load-script-source" value="data.sql"/>
+        </properties>
+    </persistence-unit>
+</persistence>
