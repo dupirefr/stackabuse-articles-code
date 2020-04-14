@@ -20,6 +20,9 @@
 
             <!-- Data loading -->
             <property name="javax.persistence.sql-load-script-source" value="data.sql"/>
+            
+            <!-- Logging -->
+            <property name="org.hibernate.show_sql" value="true"/>
         </properties>
     </persistence-unit>
 </persistence>

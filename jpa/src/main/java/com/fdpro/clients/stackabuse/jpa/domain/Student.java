@@ -5,6 +5,7 @@ import com.fdpro.clients.stackabuse.jpa.domain.converters.YesNoBooleanConverter;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -38,6 +39,9 @@ public class Student {
       @AttributeOverride(name = "city", column = @Column(name = "ST_CITY"))
     })
     private Address address;
+
+    @ManyToMany(mappedBy = "students")
+    private List<Course> courses;
 
     public Long id() {
         return id;
@@ -73,6 +77,10 @@ public class Student {
 
     public Address address() {
         return address;
+    }
+
+    public List<Course> courses() {
+        return courses;
     }
 
     @Override
