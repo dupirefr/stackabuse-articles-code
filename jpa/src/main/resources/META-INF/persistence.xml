@@ -3,10 +3,12 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
              version="2.2">
-    <persistence-unit name="guide-to-jpa-with-hibernate">
-        <class>com.fdpro.clients.stackabuse.jpa.domain.Student</class>
+    <persistence-unit name="guide-to-jpa-with-hibernate-basic">
+        <class>com.fdpro.clients.stackabuse.jpa.basic.Student</class>
 
-        <class>com.fdpro.clients.stackabuse.jpa.domain.converters.YesNoBooleanConverter</class>
+        <class>com.fdpro.clients.stackabuse.jpa.basic.converters.YesNoBooleanConverter</class>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
         <properties>
             <!-- Database configuration -->
@@ -19,8 +21,138 @@
             <property name="javax.persistence.schema-generation.database.action" value="create"/>
 
             <!-- Data loading -->
-            <property name="javax.persistence.sql-load-script-source" value="data.sql"/>
+            <property name="javax.persistence.sql-load-script-source" value="com/fdpro/clients/stackabuse/jpa/basic/data.sql"/>
             
+            <!-- Logging -->
+            <property name="org.hibernate.show_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="guide-to-jpa-with-hibernate-relationships">
+        <class>com.fdpro.clients.stackabuse.jpa.relationships.Student</class>
+        <class>com.fdpro.clients.stackabuse.jpa.relationships.Teacher</class>
+        <class>com.fdpro.clients.stackabuse.jpa.relationships.Course</class>
+        <class>com.fdpro.clients.stackabuse.jpa.relationships.CourseMaterial</class>
+
+        <class>com.fdpro.clients.stackabuse.jpa.relationships.converters.YesNoBooleanConverter</class>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+        <properties>
+            <!-- Database configuration -->
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:"/>
+            <property name="javax.persistence.jdbc.user" value="user"/>
+            <property name="javax.persistence.jdbc.password" value="password"/>
+
+            <!-- Schema configuration -->
+            <property name="javax.persistence.schema-generation.database.action" value="create"/>
+
+            <!-- Data loading -->
+            <property name="javax.persistence.sql-load-script-source" value="com/fdpro/clients/stackabuse/jpa/relationships/data.sql"/>
+
+            <!-- Logging -->
+            <property name="org.hibernate.show_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="guide-to-jpa-with-hibernate-inheritance-mappedsuperclass">
+        <class>com.fdpro.clients.stackabuse.jpa.inheritance.mappedsuperclass.Vehicle</class>
+        <class>com.fdpro.clients.stackabuse.jpa.inheritance.mappedsuperclass.Car</class>
+        <class>com.fdpro.clients.stackabuse.jpa.inheritance.mappedsuperclass.Motorcycle</class>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+        <properties>
+            <!-- Database configuration -->
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:default"/>
+            <property name="javax.persistence.jdbc.user" value="user"/>
+            <property name="javax.persistence.jdbc.password" value="password"/>
+
+            <!-- Schema configuration -->
+            <property name="javax.persistence.schema-generation.database.action" value="create"/>
+
+            <!-- Data loading -->
+            <property name="javax.persistence.sql-load-script-source" value="com/fdpro/clients/stackabuse/jpa/inheritance/mappedsuperclass/data.sql"/>
+
+            <!-- Logging -->
+            <property name="org.hibernate.show_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="guide-to-jpa-with-hibernate-inheritance-singletable">
+        <class>com.fdpro.clients.stackabuse.jpa.inheritance.singletable.Vehicle</class>
+        <class>com.fdpro.clients.stackabuse.jpa.inheritance.singletable.Car</class>
+        <class>com.fdpro.clients.stackabuse.jpa.inheritance.singletable.Motorcycle</class>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+        <properties>
+            <!-- Database configuration -->
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:default"/>
+            <property name="javax.persistence.jdbc.user" value="user"/>
+            <property name="javax.persistence.jdbc.password" value="password"/>
+
+            <!-- Schema configuration -->
+            <property name="javax.persistence.schema-generation.database.action" value="create"/>
+
+            <!-- Data loading -->
+            <property name="javax.persistence.sql-load-script-source" value="com/fdpro/clients/stackabuse/jpa/inheritance/singletable/data.sql"/>
+
+            <!-- Logging -->
+            <property name="org.hibernate.show_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="guide-to-jpa-with-hibernate-inheritance-onetableperclass">
+        <class>com.fdpro.clients.stackabuse.jpa.inheritance.onetableperclass.Vehicle</class>
+        <class>com.fdpro.clients.stackabuse.jpa.inheritance.onetableperclass.Car</class>
+        <class>com.fdpro.clients.stackabuse.jpa.inheritance.onetableperclass.Motorcycle</class>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+        <properties>
+            <!-- Database configuration -->
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:default"/>
+            <property name="javax.persistence.jdbc.user" value="user"/>
+            <property name="javax.persistence.jdbc.password" value="password"/>
+
+            <!-- Schema configuration -->
+            <property name="javax.persistence.schema-generation.database.action" value="create"/>
+
+            <!-- Data loading -->
+            <property name="javax.persistence.sql-load-script-source" value="com/fdpro/clients/stackabuse/jpa/inheritance/onetableperclass/data.sql"/>
+
+            <!-- Logging -->
+            <property name="org.hibernate.show_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="guide-to-jpa-with-hibernate-inheritance-joinedtable">
+        <class>com.fdpro.clients.stackabuse.jpa.inheritance.joinedtable.Person</class>
+        <class>com.fdpro.clients.stackabuse.jpa.inheritance.joinedtable.Student</class>
+        <class>com.fdpro.clients.stackabuse.jpa.inheritance.joinedtable.Teacher</class>
+
+        <class>com.fdpro.clients.stackabuse.jpa.inheritance.joinedtable.converters.YesNoBooleanConverter</class>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+        <properties>
+            <!-- Database configuration -->
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:default"/>
+            <property name="javax.persistence.jdbc.user" value="user"/>
+            <property name="javax.persistence.jdbc.password" value="password"/>
+
+            <!-- Schema configuration -->
+            <property name="javax.persistence.schema-generation.database.action" value="create"/>
+
+            <!-- Data loading -->
+            <property name="javax.persistence.sql-load-script-source" value="com/fdpro/clients/stackabuse/jpa/inheritance/joinedtable/data.sql"/>
+
             <!-- Logging -->
             <property name="org.hibernate.show_sql" value="true"/>
         </properties>

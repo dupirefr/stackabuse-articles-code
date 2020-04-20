@@ -1,0 +1,58 @@
+@startuml
+
+class Gender {
+    MALE
+    FEMALE
+}
+
+class Address {
+    String street
+    String number
+    String city
+}
+
+class Person {
+    String lastName
+    String firstName
+    LocalDate birthDate
+}
+Gender -- Person
+Address -- Person
+
+class Student {
+    boolean wantsNewsletter
+}
+Person <|-- Student
+
+class Teacher {
+}
+Person <|-- Teacher
+
+class Course {
+    String title
+}
+Course "0..*" <- "1..*" Student : takes
+Teacher "1" -> "0..*" Course : teaches
+
+class CourseMaterial {
+    String url
+}
+Course "1" --> "0..1" CourseMaterial : has
+
+class Vehicle {
+    String licensePlate
+}
+
+class Car {
+    boolean lpg
+}
+Vehicle <|-- Car
+
+class Motorcycle {
+    boolean sideCar
+}
+Vehicle <|-- Motorcycle
+
+Vehicle <-- Teacher : has
+
+@enduml

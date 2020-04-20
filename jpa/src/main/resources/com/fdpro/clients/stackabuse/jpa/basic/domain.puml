@@ -1,0 +1,23 @@
+@startuml
+
+class Gender {
+    MALE
+    FEMALE
+}
+
+class Address {
+    String street
+    String number
+    String city
+}
+
+class Student {
+    String lastName
+    String firstName
+    LocalDate birthDate
+    boolean wantsNewsletter
+}
+Gender -- Student
+Address -- Student
+
+@enduml
