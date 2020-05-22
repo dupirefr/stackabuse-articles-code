@@ -2,6 +2,7 @@ package com.fdpro.clients.stackabuse.jpa.relationships;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -39,18 +40,22 @@ class Student {
     private Address address;
 
     @ManyToMany(mappedBy = "students")
-    private List<Course> courses;
+    private List<Course> courses = new ArrayList<>();
 
     public Long id() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String lastName() {
         return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String firstName() {
@@ -81,6 +86,34 @@ class Student {
         return courses;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setBirthDateAsDate(Date birthDateAsDate) {
+        this.birthDateAsDate = birthDateAsDate;
+    }
+
+    public void setBirthDateAsLocalDate(LocalDate birthDateAsLocalDate) {
+        this.birthDateAsLocalDate = birthDateAsLocalDate;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+    public void setWantsNewsletter(boolean wantsNewsletter) {
+        this.wantsNewsletter = wantsNewsletter;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public void addCourse(Course course) {
+        this.courses.add(course);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -93,6 +126,7 @@ class Student {
     public int hashCode() {
         return Objects.hash(id);
     }
+
 
     public enum Gender {
         MALE,

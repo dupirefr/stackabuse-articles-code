@@ -56,6 +56,31 @@
         </properties>
     </persistence-unit>
 
+    <persistence-unit name="guide-to-jpa-with-hibernate-relationships-many-to-many">
+        <class>com.fdpro.clients.stackabuse.jpa.relationships.Student</class>
+        <class>com.fdpro.clients.stackabuse.jpa.relationships.Teacher</class>
+        <class>com.fdpro.clients.stackabuse.jpa.relationships.Course</class>
+        <class>com.fdpro.clients.stackabuse.jpa.relationships.CourseMaterial</class>
+
+        <class>com.fdpro.clients.stackabuse.jpa.relationships.converters.YesNoBooleanConverter</class>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+        <properties>
+            <!-- Database configuration -->
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:"/>
+            <property name="javax.persistence.jdbc.user" value="user"/>
+            <property name="javax.persistence.jdbc.password" value="password"/>
+
+            <!-- Schema configuration -->
+            <property name="javax.persistence.schema-generation.database.action" value="create"/>
+
+            <!-- Logging -->
+            <property name="org.hibernate.show_sql" value="true"/>
+        </properties>
+    </persistence-unit>
+
     <persistence-unit name="guide-to-jpa-with-hibernate-inheritance-mappedsuperclass">
         <class>com.fdpro.clients.stackabuse.jpa.inheritance.mappedsuperclass.Vehicle</class>
         <class>com.fdpro.clients.stackabuse.jpa.inheritance.mappedsuperclass.Car</class>

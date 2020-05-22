@@ -1,6 +1,7 @@
 package com.fdpro.clients.stackabuse.jpa.relationships;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -24,7 +25,7 @@ class Course {
       joinColumns = @JoinColumn(name = "COURSE_ID", referencedColumnName = "ID"),
       inverseJoinColumns = @JoinColumn(name = "STUDENT_ID", referencedColumnName = "ID")
     )
-    private List<Student> students;
+    private List<Student> students = new ArrayList<>();
 
     private Course() {}
 
@@ -62,6 +63,11 @@ class Course {
 
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
+    }
+
+    public void addStudent(Student student) {
+        this.students.add(student);
+//        student.addCourse(this);
     }
 
     @Override
