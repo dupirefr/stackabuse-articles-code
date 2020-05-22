@@ -1,4 +1,4 @@
-package com.fdpro.clients.stackabuse.jpa.domain.converters;
+package com.fdpro.clients.stackabuse.jpa.basic.converters;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;

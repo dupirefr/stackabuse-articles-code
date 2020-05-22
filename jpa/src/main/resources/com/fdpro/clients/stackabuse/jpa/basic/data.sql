@@ -1,0 +1,1 @@
+insert into STUD(ID, LASTNAME, FIRST_NAME, BIRTHDATE, GENDER, WANTSNEWSLETTER, ST_STREET, ST_NUMBER, ST_CITY) values(10, 'Doe', 'John', TO_DATE('2000-02-18', 'YYYY-MM-DD'), 'MALE', 'Y', 'Baker Street', '221B', 'London');

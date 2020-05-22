@@ -1,10 +1,10 @@
-package com.fdpro.clients.stackabuse.jpa.domain;
+package com.fdpro.clients.stackabuse.jpa.basic;
 
 import javax.persistence.Embeddable;
 import java.util.Objects;
 
 @Embeddable
-public class Address {
+class Address {
     private String street;
     private String number;
     private String city;

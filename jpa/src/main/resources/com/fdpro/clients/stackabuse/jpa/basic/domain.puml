@@ -17,28 +17,7 @@ class Student {
     LocalDate birthDate
     boolean wantsNewsletter
 }
-
-class Teacher {
-    String lastName
-    String firstName
-}
-
-class Course {
-    String title
-}
-
-class CourseMaterial {
-    String url
-}
-
 Gender -- Student
-
 Address -- Student
-
-Course "0..*" <- "1..*" Student : takes
-
-Teacher "1" -> "0..*" Course : teaches
-
-Course "1" --> "0..1" CourseMaterial : has
 
 @enduml

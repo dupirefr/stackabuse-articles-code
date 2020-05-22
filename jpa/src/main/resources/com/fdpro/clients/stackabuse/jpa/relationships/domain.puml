@@ -1,0 +1,39 @@
+@startuml
+
+class Gender {
+    MALE
+    FEMALE
+}
+
+class Address {
+    String street
+    String number
+    String city
+}
+
+class Student {
+    String lastName
+    String firstName
+    LocalDate birthDate
+    boolean wantsNewsletter
+}
+Gender -- Student
+Address -- Student
+
+class Teacher {
+    String lastName
+    String firstName
+}
+
+class Course {
+    String title
+}
+Course "0..*" <- "1..*" Student : takes
+Teacher "1" -> "0..*" Course : teaches
+
+class CourseMaterial {
+    String url
+}
+Course "1" --> "0..1" CourseMaterial : has
+
+@enduml

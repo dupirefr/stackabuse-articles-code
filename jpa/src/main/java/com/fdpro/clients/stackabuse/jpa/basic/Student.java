@@ -1,6 +1,4 @@
-package com.fdpro.clients.stackabuse.jpa.domain;
-
-import com.fdpro.clients.stackabuse.jpa.domain.converters.YesNoBooleanConverter;
+package com.fdpro.clients.stackabuse.jpa.basic;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -9,7 +7,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "STUD")
-public class Student {
+class Student {
     @Id
     @GeneratedValue
     private Long id;

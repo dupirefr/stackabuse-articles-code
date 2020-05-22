@@ -1,6 +1,5 @@
-package com.fdpro.clients.stackabuse.jpa.mvp;
+package com.fdpro.clients.stackabuse.jpa.basic;
 
-import com.fdpro.clients.stackabuse.jpa.domain.Student;
 import org.junit.jupiter.api.Test;
 
 import javax.persistence.EntityManager;
@@ -13,18 +12,17 @@ class MinimalConfigurationUnitTest {
 
     @Test
     void givenMinimalConfiguration_whenFindEntity_thenFound() {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("guide-to-jpa-with-hibernate");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("guide-to-jpa-with-hibernate-basic");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
 
         Student student = new Student();
-        student.setId(1L);
 
         entityManager.persist(student);
         entityManager.getTransaction().commit();
         entityManager.clear();
 
-        Student foundStudent = entityManager.find(Student.class, 1L);
+        Student foundStudent = entityManager.find(Student.class, student.id());
 
         assertThat(foundStudent.id()).isEqualTo(student.id());
 
