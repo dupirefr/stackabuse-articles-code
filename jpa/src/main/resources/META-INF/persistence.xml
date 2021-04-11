@@ -182,4 +182,27 @@
             <property name="org.hibernate.show_sql" value="true"/>
         </properties>
     </persistence-unit>
+
+    <persistence-unit name="guide-to-jpa-with-hibernate-querying">
+        <class>be.nerthusconsulting.clients.stackabuse.jpa.querying.Person</class>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+        <properties>
+            <!-- Database configuration -->
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:default"/>
+            <property name="javax.persistence.jdbc.user" value="user"/>
+            <property name="javax.persistence.jdbc.password" value="password"/>
+
+            <!-- Schema configuration -->
+            <property name="javax.persistence.schema-generation.database.action" value="create"/>
+
+            <!-- Data loading -->
+            <property name="javax.persistence.sql-load-script-source" value="be/nerthusconsulting/clients/stackabuse/jpa/querying/data.sql"/>
+
+            <!-- Logging -->
+            <property name="org.hibernate.show_sql" value="true"/>
+        </properties>
+    </persistence-unit>
 </persistence>
